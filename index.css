@@ -1,35 +1,43 @@
+.body {
+    background: #EEF9BF;
+   
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .div {
     width: 1110px;
     height: 629px;
-    background: #EEF9BF;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
 .p {
-    
-    width: 540px;
+    width: auto;
     height: 63px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 56px;
     line-height: 66px;
-    text-align: center;
     color: #75B79E;
     margin: 40px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }
 
 .painel-de-cartas {
-    /*margin-top: 7 px;*/
-    width: 872px;
-    height: 323px;
+    margin-top: 7 px;
+    margin-left: 122px;
+    margin-right:116px ;
+    width: 100%;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    align-content: space-between;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .bird {
@@ -42,6 +50,7 @@
     box-sizing: border-box;
     width: 117px;
     height: 146px;
+    margin: 34px;
     background: #A7E9AF;
     border: 1px solid #99CEA8;
     border-radius: 5px;
@@ -54,24 +63,20 @@
 
 /* menor ou igual 629px */
 @media (max-width: 629px) {
-
-    /*.painel-de-cartas {
+    .painel-de-cartas {
         display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-items: center;
+        justify-content: center;
     }
+
     
+    /*
     .div{
         width: auto;
     }
     */
 
     .p{
-        width: 50%;
-        /*text-align: center;*/
-    }
-    
+        font-size: 36px;       
+        line-height: 42px;
+    }  
 }
-
-C:\Users\ruann\dev\ediane\Driven Curso\Projeto-04-Parrot-Card-Game
