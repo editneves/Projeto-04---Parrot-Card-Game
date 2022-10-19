@@ -1,0 +1,77 @@
+.div {
+    width: 1110px;
+    height: 629px;
+    background: #EEF9BF;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.p {
+    
+    width: 540px;
+    height: 63px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 66px;
+    text-align: center;
+    color: #75B79E;
+    margin: 40px;
+}
+
+.painel-de-cartas {
+    /*margin-top: 7 px;*/
+    width: 872px;
+    height: 323px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.bird {
+    width: 100px;
+    height: 100px;
+}
+
+
+.carta {
+    box-sizing: border-box;
+    width: 117px;
+    height: 146px;
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* menor ou igual 629px */
+@media (max-width: 629px) {
+
+    /*.painel-de-cartas {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    
+    .div{
+        width: auto;
+    }
+    */
+
+    .p{
+        width: 50%;
+        /*text-align: center;*/
+    }
+    
+}
+
+C:\Users\ruann\dev\ediane\Driven Curso\Projeto-04-Parrot-Card-Game
