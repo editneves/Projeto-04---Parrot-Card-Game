@@ -20,8 +20,3 @@ setTimeout(() => {
 
 
 
-"uso de do While e promp, para perguntar ao usuário com quantas cartas deseja jogar, caso a resposta não seja um numero par entre 4 e  14, a pergunta seré repetida"
-
-
-
-
