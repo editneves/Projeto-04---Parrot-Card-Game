@@ -1,6 +1,6 @@
 .body {
     background: #EEF9BF;
-   
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -32,7 +32,7 @@
 .painel-de-cartas {
     margin-top: 7 px;
     margin-left: 122px;
-    margin-right:116px ;
+    margin-right: 116px;
     width: 100%;
     height: auto;
     display: flex;
@@ -43,8 +43,14 @@
 .bird {
     width: 100px;
     height: 100px;
+    transition: background 400ms linear;
+    transform-style: preserve-3d;
 }
 
+.bird:hover {
+    background: blue;
+    transform: rotateY(180deg);
+}
 
 .carta {
     box-sizing: border-box;
@@ -58,8 +64,8 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-}
 
+}
 
 /* menor ou igual 629px */
 @media (max-width: 629px) {
@@ -68,15 +74,20 @@
         justify-content: center;
     }
 
-    
+
     /*
     .div{
         width: auto;
     }
     */
 
-    .p{
-        font-size: 36px;       
+    .p {
+        font-size: 36px;
         line-height: 42px;
-    }  
+    }
+}
+
+img {
+    width: 350px;
+    height: 350px;
 }
