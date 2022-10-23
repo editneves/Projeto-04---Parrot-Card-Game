@@ -1,3 +1,6 @@
+let globalArrayEmb = []
+let globaQtde = 0
+
 function funcaoPaginaCarregada() {
     let qtde = 0;
 
@@ -9,12 +12,14 @@ function funcaoPaginaCarregada() {
         console.log((!resultado), !(qtde <= 14 && qtde >= 4))
     } while (!resultado || !(qtde <= 14 && qtde >= 4))
 
-    let arrayEmb = EmbaralhaArray()
-    selecionarCarta(arrayEmb, qtde)
+    globaQtde = qtde
+    globalArrayEmb = EmbaralhaArray()
+
+    CreateCarta()
 }
 
 function EmbaralhaArray() {
-
+    const qtde = globaQtde
     let imgArray = [
         'fiestaparrot',
         'explodyparrot',
@@ -22,44 +27,95 @@ function EmbaralhaArray() {
         'unicornparrot',
         'revertitparrot',
         'tripletsparrot',
-        'fiestaparrot',
-        'explodyparrot',
-        'metalparrot',
-        'unicornparrot',
-        'revertitparrot',
-        'tripletsparrot',
+        'headbanging',
+        'party',
+        'party2',
     ];
 
-    //embaralhamento da imgArray
-    imgArray.sort(comparador); //Array estará embaralhada
+    let q = qtde / 2;
+    const imgArray2 = []
+    if (q <= imgArray.length) {
 
+        for (let i = 0; i < q; i++) {
+            imgArray2.push(imgArray[i])
+        }
+
+        console.log(imgArray2)
+    }
+
+    const duplicateArray = [...imgArray2, ...imgArray2];
+
+    //embaralhamento da imgArray
+    duplicateArray.sort(comparador); //Array estará embaralhada
 
     function comparador() {
         return Math.random() - 0.5;
     }
+    return duplicateArray
 
-    return imgArray
 }
 
-function selecionarCarta(arrayEmb, qtde) {
+function CreateCarta() {
+    document.getElementsByClassName('.painel-de-cartas').innerHTML = '';
+    const arrayEmb = globalArrayEmb
+    const qtde = globaQtde
     // lista de imagens - array
     const lista = document.querySelector('.painel-de-cartas');
-
-    console.log(qtde)
 
     let contador = 0;
     while (qtde > contador) {
         lista.innerHTML +=
-        `<ul class="carta" onclick="selecionarCarta(this)">
-            <li>
-                <img src="./assests/${arrayEmb[contador]}.gif" class="bird" />
-            </li>
-        </ul>`;
+            `
+         <div class="carta" onclick="selecionarCarta(this)" data-image="./assests/${arrayEmb[contador]}.gif">
+            <img src="./assests/back.png" class="bird" />
+         </div>
+        `;
         contador++;
     }
 }
+
+let arrayCartasViradas = [];
+
+function selecionarCarta(carta) {
+
+    virarCarta(carta)
+
+    arrayCartasViradas.push(carta);
+
+    if (arrayCartasViradas.length >= 2) {
+
+        if (arrayCartasViradas[0].dataset.image === arrayCartasViradas[1].dataset.image) {
+            setTimeout(() => {
+                cartasiguais(arrayCartasViradas)
+                arrayCartasViradas = [];
+            }, 1000)
+        }
+        else if (arrayCartasViradas[0].dataset.image != arrayCartasViradas[1].dataset.image) {
+            setTimeout(() => {
+                cartasdiferentes(arrayCartasViradas)
+                arrayCartasViradas = [];
+            }, 1000)
+        }
+    }
+
+    function cartasiguais(arrayCartasViradas) {
+        arrayCartasViradas[0].classList.add("disable-carta");
+        arrayCartasViradas[1].classList.add("disable-carta");
+    }
+
+    function cartasdiferentes(arrayCartasViradas) {
+        arrayCartasViradas[0].firstElementChild.setAttribute("src", "./assests/back.png");
+        arrayCartasViradas[1].firstElementChild.setAttribute("src", "./assests/back.png");
+    }
+
+   // alert("Você ganhou em #{jogadas} jogadas!")
+
+}
+function virarCarta(carta) {
+    const imgElement = carta.firstElementChild
+    imgElement.setAttribute("src", carta.dataset.image);
+}
+
 setTimeout(() => {
     funcaoPaginaCarregada()
 }, 1000)
-C:\Users\ruann\dev\ediane\Driven CursoProjeto 04 - Parrot Card Game
-C:\Users\ruann\dev\ediane\Driven Curso\Projeto 04 - Parrot Card Game

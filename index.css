@@ -43,13 +43,9 @@
 .bird {
     width: 100px;
     height: 100px;
-    transition: background 400ms linear;
-    transform-style: preserve-3d;
-}
-
-.bird:hover {
-    background: blue;
-    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    /*transition: background 400ms linear;
+    transform-style: preserve-3d; */
 }
 
 .carta {
@@ -63,9 +59,16 @@
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
-
+     justify-content: center;
+    /*transition: all 1000ms;
+  transform-style: preserve-3d; */
 }
+
+.disable-carta {
+    pointer-events: none;
+    background: white;
+}
+
 
 /* menor ou igual 629px */
 @media (max-width: 629px) {
@@ -73,13 +76,6 @@
         display: flex;
         justify-content: center;
     }
-
-
-    /*
-    .div{
-        width: auto;
-    }
-    */
 
     .p {
         font-size: 36px;
