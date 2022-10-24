@@ -2,6 +2,7 @@ let globalArrayEmb = []
 let globaQtde = 0
 let globalCount = 0;
 let globalQtdeClassDisableCarta = 0;
+const timer = document.querySelector('.timer');
 
 function funcaoPaginaCarregada() {
     let qtde = 0;
@@ -79,7 +80,7 @@ function CreateCarta() {
 let arrayCartasViradas = [];
 
 function selecionarCarta(carta) {
-    
+
     virarCarta(carta)
 
     arrayCartasViradas.push(carta);
@@ -111,18 +112,34 @@ function selecionarCarta(carta) {
     }
 
     globalCount++;
-    console.log(globalCount)
 
     setTimeout(() => {
         CartaClicada()
-    }, 2000)
-    
+    }, 1100)
+}
+
+window.onload = () => {
+    startTimer()
+    console.log(startTimer)
+}
+
+const startTimer = () => {
+    this.loop = setInterval(() => {
+        const currentTime = +timer.innerHTML;
+        timer.innerHTML = currentTime + 1;
+    }, 1000);
 }
 
 function CartaClicada() {
+
     //globalQtdeClassDisableCarta = document.getElementsByClassName('disable-carta').length;
     if (globaQtde === document.getElementsByClassName('disable-carta').length) {
-        alert(`Você ganhou em  ${globalCount} jogadas!`)
+
+        clearInterval(this.loop);
+
+        setTimeout(() => {
+            alert(`Você ganhou em  ${globalCount} jogadas! Seu tempo foi de ${timer.innerHTML}`)
+        }, 2000)
     }
 }
 

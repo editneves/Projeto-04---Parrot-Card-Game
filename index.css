@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+span {
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    color: #75B79E;
+    padding: 5px;
+    margin-right: -90%;
+    margin-top: 2%;
+}
+
 .body {
     background: #EEF9BF;
-
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -44,8 +57,8 @@
     width: 100px;
     height: 100px;
     backface-visibility: hidden;
-    /*transition: background 400ms linear;
-    transform-style: preserve-3d; */
+    transition: all 2000ms;
+    transform-style: preserve-3d;
 }
 
 .carta {
@@ -59,16 +72,20 @@
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-     justify-content: center;
-    /*transition: all 1000ms;
-  transform-style: preserve-3d; */
+    justify-content: center;
+    transition: all 2000ms;
+    transform-style: preserve-3d;
+}
+
+img {
+    width: 350px;
+    height: 350px;
 }
 
 .disable-carta {
     pointer-events: none;
-    background: white;
+    background-color: rgba(255, 255, 255, 0.8);
 }
-
 
 /* menor ou igual 629px */
 @media (max-width: 629px) {
@@ -81,9 +98,4 @@
         font-size: 36px;
         line-height: 42px;
     }
-}
-
-img {
-    width: 350px;
-    height: 350px;
 }
